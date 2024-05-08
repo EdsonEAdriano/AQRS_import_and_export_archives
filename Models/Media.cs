@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AQRS_import_and_export_archives.Models
 {
+    [Table("t_media")]
     public class Media
     {
         [Key]
