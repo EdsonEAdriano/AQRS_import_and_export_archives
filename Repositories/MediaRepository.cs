@@ -13,6 +13,18 @@ namespace AQRS_import_and_export_archives.Repositories
             _context = context;
         }
 
+        public async Task<Media> Add(Media media)
+        {
+            await _context
+                    .Set<Media>()
+                    .AddAsync(media);
+
+            await _context
+                    .SaveChangesAsync();
+
+            return media;
+        }
+
         public async Task<List<Media>> Get()
         {
             return await _context
