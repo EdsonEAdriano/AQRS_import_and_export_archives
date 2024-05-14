@@ -48,5 +48,30 @@ namespace AQRS_import_and_export_archives.Controllers
 
             return list;
         }
+
+        [HttpGet("export")]
+        public async Task<IActionResult> Export()
+        {
+            var mediaList = await _repository.Get();
+
+            if (mediaList == null || mediaList.Count == 0)
+            {
+                return NoContent();
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var media in mediaList)
+            {
+                stringBuilder.Append(media.Genre + new string(' ', 30 - media.Genre.Length));
+                stringBuilder.Append(media.Category + new string(' ', 30 - media.Category.Length));
+                stringBuilder.Append(media.Text + new string(' ', 250 - media.Text.Length));
+                stringBuilder.Append(media.Type + new string(' ', 30 - media.Type.Length));
+                stringBuilder.Append(media.Rating + new string(' ', 20 - media.Rating.Length));
+                stringBuilder.AppendLine(media.Participant + new string(' ', 30 - media.Participant.Length));
+            }
+
+            byte[] buffer = Encoding.UTF8.GetBytes(stringBuilder.ToString());
+            return File(buffer, "text/plain", "media_data.txt");
+        }
     }
 }
