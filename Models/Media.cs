@@ -12,6 +12,7 @@ namespace AQRS_import_and_export_archives.Models
         public string Genre { get; set; }
         [StringLength(30)]
         public string Category { get; set; }
+        [Column("media_name")]
         [StringLength(250)]
         public string MediaName { get; set; }
         [StringLength(30)]
