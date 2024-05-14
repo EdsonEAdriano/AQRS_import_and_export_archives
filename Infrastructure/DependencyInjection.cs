@@ -1,7 +1,8 @@
-﻿using AQRS_import_and_export_archives.Repositories;
+﻿using AQRS_import_and_export_archives.Data;
+using AQRS_import_and_export_archives.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace AQRS_import_and_export_archives.Data
+namespace AQRS_import_and_export_archives.Infrastructure
 {
     public static class DependencyInjection
     {
