@@ -25,6 +25,18 @@ namespace AQRS_import_and_export_archives.Repositories
             return media;
         }
 
+        public async Task<List<Media>> AddRange(List<Media> medias)
+        {
+            await _context
+                    .Set<Media>()
+                    .AddRangeAsync(medias);
+
+            await _context
+                    .SaveChangesAsync();
+
+            return medias;
+        }
+
         public async Task<List<Media>> Get()
         {
             return await _context

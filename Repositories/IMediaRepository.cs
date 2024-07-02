@@ -1,4 +1,5 @@
 ﻿using AQRS_import_and_export_archives.Models;
+using System.Collections;
 
 namespace AQRS_import_and_export_archives.Repositories
 {
@@ -6,5 +7,6 @@ namespace AQRS_import_and_export_archives.Repositories
     {
         Task<List<Media>> Get();
         Task<Media> Add(Media media);
+        Task<List<Media>> AddRange(List<Media> medias);
     }
 }
