@@ -7,18 +7,24 @@ namespace AQRS_import_and_export_archives.Models
     public class Media
     {
         [Key]
+        [Column("id")]
         public int Id { get; set; }
+        [Column("genre")]
         [StringLength(30)]
         public string Genre { get; set; }
+        [Column("category")]
         [StringLength(30)]
         public string Category { get; set; }
         [Column("media_name")]
         [StringLength(250)]
         public string MediaName { get; set; }
+        [Column("media_type")]
         [StringLength(30)]
         public string Type { get; set; }
+        [Column("rating")]
         [StringLength(20)]
         public string Rating { get; set; }
+        [Column("participant")]
         [StringLength(50)]
         public string Participant { get; set; }
 
